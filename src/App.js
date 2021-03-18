@@ -3,6 +3,8 @@ import './App.css';
 import ContactItem from './components/contact-item/contact-item'
 import NavbartItem from './components/contact-item/navbar-item'
 import FormtItem from './components/contact-item/form-item'
+import ContactList from './components/contact-list/contact-list';
+import NoteList from './components/contact-list/note-list';
 
 
 class App extends Component {
@@ -10,7 +12,7 @@ class App extends Component {
   state = {
     contacts: [
       {
-        name: "Contact item here",
+        name: "Contact here",
         number: "Some number",
         image: 46,
         gender: "men"
@@ -22,10 +24,22 @@ class App extends Component {
         gender: "women"
       },
       {
-        name: "Contact item here",
+        name: "Item here",
         number: "Some number",
         image: 49,
         gender: "men"
+      }
+    ],
+    notes: [
+      {
+        title : "Title",
+        text : "Text"
+      },{
+        title : "Title",
+        text : "Text"
+      },{
+        title : "Title",
+        text : "Text"
       }
     ]
   }
@@ -45,13 +59,12 @@ class App extends Component {
             <div className="col-9">
               <div className="row">
 
-                <ContactItem ></ContactItem>
-                <ContactItem ></ContactItem>
-                <ContactItem ></ContactItem>
+               <ContactList contacts={this.state.contacts}></ContactList>
 
               </div>
             </div>
           </div>
+          <NoteList notes={this.state.notes}></NoteList>
         </div>
       </Fragment>)
   }

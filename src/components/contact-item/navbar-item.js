@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './navbar-item.css';
+import {Link} from 'react-router-dom'
 
 class NavbartItem extends Component{
     state ={
@@ -8,9 +9,13 @@ class NavbartItem extends Component{
     render(){
         const {name} = this.state;
         return(
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">{name}</span>
+          <Link class="navbar-brand nav-link mb-0 h1" to="/">{name}</Link>
+          <Link className="nav-item nav-link" to="/contact-list">Contact list</Link>
+          <Link className="nav-item nav-link" to="/favoriteContact">Favorite list</Link>
+          <Link className="nav-item nav-link" to="/add-contact">Add contact</Link>
+
         </div>
       </nav>)
 

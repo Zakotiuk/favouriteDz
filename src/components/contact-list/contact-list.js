@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import ContactItem from '../contact-item/contact-item';
 
-const ContactList = ({contacts , removeContact, editContact, saveEditContact, changeFavorite}) => {
+const ContactList = ({contacts , removeContact, editContact, saveEditContact, changeFavorite, changeHide}) => {
 
     var contactsTemplate;
     if(contacts !== null){
@@ -14,7 +14,8 @@ const ContactList = ({contacts , removeContact, editContact, saveEditContact, ch
                     number = {item.number}
                     gender = {item.gender}
                     image = {item.image}
-                    isFavarite={item.isFavarite}                    
+                    isFavarite={item.isFavarite}         
+                    isHide={item.isHide}                               
                     changeFavorite={() => changeFavorite(item.id)}
 
                 ></ContactItem>

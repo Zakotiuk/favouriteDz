@@ -96,6 +96,7 @@ class App extends Component {
     console.log(this.state.List);
   }
 
+
   getContacs(){
     fetch(this.URL_Contacts, {method : "GET"})
     .then(data=>{
@@ -110,6 +111,17 @@ class App extends Component {
     .catch(error=>{
       console.log("error: ", error)
     })
+  }
+
+  
+  changeHide = id => {
+    const index = this.state.List.findIndex(t => t.id === id);
+    let tempList = this.state.List.slice();
+    tempList[index].isFavarite = !tempList[index].isHide;
+    this.setState({
+      List: tempList
+    });
+    console.log(this.state.List);
   }
 
   saveChanges(collection, URL){
@@ -205,7 +217,7 @@ class App extends Component {
               <Route
                 path="/contact-list"
                 exact
-                render={() => <ContactList saveEditContact={this.saveEditContact} editContact={this.editContact} removeContact={this.removeContact} updateContact={this.updateContact}  changeFavorite={this.changeFavorite.bind(this)} contacts={this.state.contacts}></ContactList>}>
+                render={() => <ContactList saveEditContact={this.saveEditContact} editContact={this.editContact} removeContact={this.removeContact} updateContact={this.updateContact}  changeFavorite={this.changeFavorite.bind(this)} changeHide={this.changeHide.bind(this)} contacts={this.state.contacts}></ContactList>}>
 
               </Route>
 
